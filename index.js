@@ -5,7 +5,10 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(cors());
-const server = app.listen(4000, ()=> console.log("Listening at http://localhost:4000"));
+//const server = app.listen(4000, ()=> console.log("Listening at http://localhost:4000"));
+const server app.listen(process.env.PORT || 3000, function(){
+  console.log('listening on', http.address().port);
+});
 const io = socket(server);
 io.on('connection', socket =>{
     console.log("Connected on Socket with ID: "+socket.id);

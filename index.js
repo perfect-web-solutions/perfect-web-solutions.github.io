@@ -3,12 +3,13 @@ const http = require('http');
 const socket = require('socket.io');
 const cors = require('cors');
 const app = express();
+let port = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 app.use(cors());
 //const server = app.listen(4000, ()=> console.log("Listening at http://localhost:4000"));
-const server = app.listen(process.env.PORT || 3000, function(){
-  console.log('listening on', http.address().port);
+const server = app.listen(port, function(){
+  console.log('listening on', port);
 });
 const io = socket(server);
 io.on('connection', socket =>{
